@@ -8,9 +8,7 @@ gem 'rack-cors'
 gem 'bcrypt', '~> 3.1.7'
 gem 'active_model_serializers', '~> 0.10.0'
 
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
+gem 'foreman', '~> 0.82.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
