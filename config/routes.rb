@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users, only: [:create, :show, :update, :destroy]
+  resources :driftmaps, only: [:create, :update, :destroy]
+
+  post    'sessions'     => 'sessions#create'
+  delete  'sessions/:id' => 'sessions#destroy'
 end
