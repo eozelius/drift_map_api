@@ -1,11 +1,14 @@
 class ApplicationController < ActionController::API
+  include Knock::Authenticable
+
   before_action :check_header
-  before_action :validate_login
+  before_action :validate_type
 
   private
+  
   def check_header
     if ['POST','PUT','PATCH'].include? request.method
-      if request.content_type != "application/vnd.api+json"
+      if request.content_type != "application/json"
         head 406 and return
       end
     end
@@ -20,22 +23,7 @@ class ApplicationController < ActionController::API
     head 409 and return
   end
 
-  def validate_login
-    token = request.headers["X-Api-Key"]
-    return unless token
-    user = User.find_by token: token
-    return unless user
-    if 15.minutes.ago < user.updated_at
-      user.touch
-      @current_user = user
-    end
-  end
-
-  def validate_user
-    head 403 and return unless @current_user
-  end
-
   def render_error(resource, status)
-    render json: resource, status: status, adapter: :json_api, serializer: ActiveModel::Serializer::ErrorSerializer, meta: default_meta
+    render json: resource, status: status, adapter: :json_api, serializer: ActiveModel::Serializer::ErrorSerializer
   end
 end

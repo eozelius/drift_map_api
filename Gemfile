@@ -7,8 +7,10 @@ gem 'puma', '~> 3.11'
 gem 'rack-cors'
 gem 'bcrypt', '~> 3.1.7'
 gem 'active_model_serializers', '~> 0.10.0'
-
 gem 'foreman', '~> 0.82.0'
+gem 'knock', '~> 1.4', '>= 1.4.2'
+
+
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
