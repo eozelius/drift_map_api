@@ -1,7 +1,7 @@
 Rails.application.configure do
   Rails.application.routes.default_url_options = {
     host: 'localhost',
-    port: 3000
+    port: 3001
   }
 
   # Settings specified here will take precedence over those in config/application.rb.
