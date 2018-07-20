@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, only: [:update, :destroy]
+  skip_before_action :validate_type, only: [:show]
 
   def show
     user = User.find(params[:id])
