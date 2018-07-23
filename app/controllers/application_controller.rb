@@ -1,11 +1,8 @@
 class ApplicationController < ActionController::API
-  include Knock::Authenticable
-
   before_action :check_header
-  before_action :validate_type
+  before_action :validate_login
 
   private
-  
   def check_header
     if ['POST','PUT','PATCH'].include? request.method
       if request.content_type != "application/json"
@@ -21,6 +18,21 @@ class ApplicationController < ActionController::API
       end
     end
     head 409 and return
+  end
+
+  def validate_login
+    token = request.headers["X-Api-Key"]
+    return unless token
+    user = User.find_by token: token
+    return unless user
+    if 5.days.ago < user.updated_at
+      user.touch
+      @current_user = user
+    end
+  end
+
+  def validate_user
+    head 403 and return unless @current_user
   end
 
   def render_error(resource, status)

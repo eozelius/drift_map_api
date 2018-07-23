@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_one :driftmap, dependent: :destroy
 
   # Validations
+  validates :email, presence: true
 end
