@@ -8,8 +8,7 @@ gem 'rack-cors'
 gem 'bcrypt', '~> 3.1.7'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'foreman', '~> 0.82.0'
-gem 'knock', '~> 1.4', '>= 1.4.2'
-
+gem 'factory_bot_rails', '~> 4.10'
 
 
 # Use ActiveStorage variant
@@ -19,6 +18,7 @@ gem 'knock', '~> 1.4', '>= 1.4.2'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  gem 'simplecov', '~> 0.12.0'
   gem 'rspec-rails', '~> 3.7'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
