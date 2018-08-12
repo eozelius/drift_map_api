@@ -17,7 +17,7 @@ class ApplicationController < ActionController::API
         return true
       end
     end
-    head 409 and return
+    head 409
   end
 
   def validate_login
