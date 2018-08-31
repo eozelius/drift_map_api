@@ -1,26 +1,13 @@
 {
-  "name": "drift_map_api",
-  "version": "1.0.0",
-  "description": "driftmaps api ",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
+  "name": "driftmaps",
+  "license": "MIT",
+  "engines": {
+    "node": "8.9.4",
+    "yarn": "1.6.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "yarn --cwd react install && yarn --cwd react build",
-    "deploy": "cp -a react/build/. public/",
-    "postinstall": "npm run build && npm run deploy && echo 'Client built!'",
+    "build": "yarn --cwd client install && yarn --cwd client build",
+    "deploy": "cp -a client/build/. public/",
     "heroku-postbuild": "yarn build && yarn deploy"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eozelius/drift_map_api.git"
-  },
-  "author": "e.ozelius@gmail.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/eozelius/drift_map_api/issues"
-  },
-  "homepage": "https://github.com/eozelius/drift_map_api#readme"
+  }
 }
