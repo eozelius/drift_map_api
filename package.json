@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build": "yarn --cwd react install && yarn --cwd react build",
-    "deploy": "cp -a client/build/. public/",
+    "deploy": "cp -a react/build/. public/",
     "heroku-postbuild": "yarn build && yarn deploy"
   }
 }
