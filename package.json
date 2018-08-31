@@ -1,0 +1,25 @@
+{
+  "name": "drift_map_api",
+  "version": "1.0.0",
+  "description": "driftmaps api ",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd react && npm install && npm run build && cd ..",
+    "deploy": "cp -a react/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eozelius/drift_map_api.git"
+  },
+  "author": "e.ozelius@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eozelius/drift_map_api/issues"
+  },
+  "homepage": "https://github.com/eozelius/drift_map_api#readme"
+}
